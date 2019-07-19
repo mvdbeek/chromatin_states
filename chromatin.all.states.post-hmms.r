@@ -25,9 +25,9 @@ library(ape)
 load(".RData");
 
 
-source("~/Dropbox/R/chromatin.functions.iii.r")
-source("~/Dropbox/R/genexp.modal.prop.ii.r")
-source("~/Dropbox/R/gene.fdr.r")
+source("../chromatin.functions.iii.r")
+source("../genexp.modal.prop.ii.r")
+source("../gene.fdr.r")
 
 ### Assign modal states to genes
 st.end.max <- 0
@@ -152,10 +152,10 @@ write.table(single.state.template,paste("single.state",st.end.max,"r",sep="."),q
 
 ### redo gene expression (may not have been completed if performing partial analysis)
 chrom.states[[paste(name,".na.states.",target.state,sep="")]] <- make.states.gff(chrom.states[[paste(name,".na.vit.",target.state,sep="")]]$states,data.na.ex)
-all.modal <- gene.exp.modal(chrom.states[[paste(name,".na.states.",target.state,sep="")]], genes.file="/mnt/data/Genomes/dmel_release/DmR6/DmR6.genes.gff")
+all.modal <- gene.exp.modal(chrom.states[[paste(name,".na.states.",target.state,sep="")]], genes.file="DmR6.genes.gff")
 chrom.states[[paste(name,".na.genes.",target.state,sep="")]] <- all.modal[["exp"]]
 gene.count <- all.modal[["count"]]
-exp.genes <- gene.exp(data.na.ex, genes.file="/mnt/data/Genomes/dmel_release/DmR6/DmR6.genes.gff")
+exp.genes <- gene.exp(data.na.ex, genes.file="DmR6.genes.gff")
 
 # expressed genes in states
 state.table.all.states <- output.state.table(states=chrom.states[[paste(name,".na.genes.",target.state,sep="")]],state.names=c(1:target.state),exp.genes=exp.genes,state.order=c(1:target.state),fdr=0.01)

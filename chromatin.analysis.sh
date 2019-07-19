@@ -5,7 +5,7 @@ NAME=analysis
 ITER=1000
 INIT=10
 DATE=`date +%d-%m-%Y`
-SCRIPT=chromatin.all.states.hmms.r
+SCRIPT=`readlink -e ./chromatin.all.states.hmms.r`
 
 # parse the options
 while getopts 's:n:i:j:k:g:h:' opt ; do

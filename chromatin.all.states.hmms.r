@@ -89,7 +89,7 @@ write.ops()
 
 ### Load libs
 library(RHmm)
-source('~/Dropbox/R/read.gff.r')
+source('read.gff.r')
 
 ### read input data
 # Data is read from a file called "input.variables.txt" in the source directory
